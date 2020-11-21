@@ -43,7 +43,7 @@ export class ClassAutocomplete extends React.Component {
     event.preventDefault();
     const customer = this.state.selectedCustomer;
     const customerFullName = `${customer.first_name} ${customer.last_name}`;
-    const message = `This means that user ${customerFullName} (ID: ${customer.id}) has been found and properly chosen. Imagine that instead of this alert, you can - for example - proceed to their details page. This needs further implementation.`;
+    const message = `This means that customer ${customerFullName} (ID: ${customer.id}) has been found and properly chosen. Imagine that instead of this alert, you can - for example - proceed to their details page. This needs further implementation.`;
 
     alert(message);
   }
