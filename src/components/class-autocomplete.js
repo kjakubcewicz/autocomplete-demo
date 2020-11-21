@@ -10,6 +10,7 @@ export class ClassAutocomplete extends React.Component {
       loading: false,
       customers: [],
       searchQuery: "",
+      selectedCustomer: null,
     };
   }
 
@@ -26,8 +27,20 @@ export class ClassAutocomplete extends React.Component {
     });
   }
 
+  handleSelection(value) {
+    const selectedCustomer = this.state.customers.find(
+      (customer) =>
+        customer.id.toString() === value.getAttribute("data-customerid")
+    );
+
+    this.setState({
+      searchQuery: `${selectedCustomer.first_name} ${selectedCustomer.last_name}`,
+      selectedCustomer,
+    });
+  }
+
   render() {
-    const { customers, loading, searchQuery } = this.state;
+    const { customers, loading, searchQuery, selectedCustomer } = this.state;
 
     return (
       <div className="class-autocomplete--wrapper">
@@ -55,11 +68,13 @@ export class ClassAutocomplete extends React.Component {
           onChange={(event) => this.handleChange(event)}
           value={searchQuery}
         />
-        {customers.length > 0 ? (
+        {customers.length > 0 && !selectedCustomer ? (
           <ul className="class-autocomplete--results-list">
             {customers.map((customer) => (
               <li
                 key={customer.id}
+                data-customerid={customer.id}
+                onClick={(event) => this.handleSelection(event.target)}
               >{`${customer.first_name} ${customer.last_name}`}</li>
             ))}
           </ul>
