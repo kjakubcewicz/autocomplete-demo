@@ -40,6 +40,8 @@ HOC allow to extend functionalities of components. HOC pattern also allows to wr
 
 7. what's the difference in handling exceptions in promises, callbacks and async...await.
 
+- Promises have chain methods to operate on responses (`.then()`) and catch error (`.catch()`). In case of async/await, exception handling is performed by using `try { } catch (error) {}` clause. Nested try/catch clauses might need rethrowing the error higher in the handling tree, depending on the needs.
+
 
 8. How many arguments does setState take and why is it async.
 
