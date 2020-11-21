@@ -9,6 +9,7 @@ export const getCustomersByName = async (query) => {
     return [];
   }
 
+  // TODO: Add PUBLIC_URL to API path before deploying to production
   const users = await fetch(`${API_ENDPOINTS.USERS}`).then((response) => {
     if (response.ok) {
       return response.json().then((data) => {

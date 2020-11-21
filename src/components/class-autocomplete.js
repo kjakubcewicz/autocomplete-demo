@@ -56,6 +56,9 @@ export class ClassAutocomplete extends React.Component {
   render() {
     const { customers, loading, searchQuery, selectedCustomer } = this.state;
 
+    // TODO: extract notification wrapper to a separate container
+    // TODO: Highlighting the matched part of customer name has to implemented
+
     return (
       <div className="class-autocomplete--wrapper">
         {loading && searchQuery.length > 1 ? (
