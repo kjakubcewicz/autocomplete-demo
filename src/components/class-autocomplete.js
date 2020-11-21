@@ -1,4 +1,5 @@
 import React from "react";
+import { getCustomersByName } from "../api/customers";
 import "./class-autocomplete.css";
 
 export class ClassAutocomplete extends React.Component {
@@ -10,10 +11,12 @@ export class ClassAutocomplete extends React.Component {
     };
   }
 
-  handleChange(event) {
+  async handleChange(event) {
     const query = event.target.value;
 
     this.setState({ searchQuery: query });
+
+    const customers = await getCustomersByName(query);
   }
 
   render() {
