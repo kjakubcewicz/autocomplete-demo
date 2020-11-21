@@ -81,6 +81,7 @@ export class ClassAutocomplete extends React.Component {
           <ul className="class-autocomplete--results-list">
             {customers.map((customer) => (
               <li
+                className="class-autocomplete--results-list-item"
                 key={customer.id}
                 data-customerid={customer.id}
                 onClick={(event) => this.handleSelection(event.target)}
