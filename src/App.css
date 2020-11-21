@@ -1,38 +1,21 @@
-.App {
-  text-align: center;
+:root {
+  /* Color scheme taken from: https://coolors.co/909cc2-084887-f58a07-f9ab55-f7f5fb It's a great generator! */
+  --color-wild-blue: #909cc2;
+  --color-yale-blue: #084887;
+  --color-dark-orange: #f58a07;
+  --color-rajah: #f9ab55;
+  --color-ghost-white: #f7f5fb;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
+  background-color: var(--color-ghost-white);
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  align-items: center;
 }
