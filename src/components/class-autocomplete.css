@@ -29,3 +29,12 @@
 
 .class-autocomplete--results-list {
 }
+
+.class-autocomplete--button {
+  margin-top: 10px;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  background-color: var(--color-yale-blue);
+  height: 40px;
+}
