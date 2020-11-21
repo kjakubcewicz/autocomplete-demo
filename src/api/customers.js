@@ -6,7 +6,14 @@ const API_ENDPOINTS = {
 export const getCustomersByName = async (query) => {
   const users = await fetch(`${API_ENDPOINTS.USERS}`).then((response) => {
     return response.json().then((data) => {
-      console.log(data);
+      const matchedCustomers = data.filter((customer) => {
+        const standarizedCustomerName = `${customer.first_name.toLowerCase()} ${customer.last_name.toLowerCase()}`;
+        const standarizedQuery = query.trim().toLowerCase();
+
+        return standarizedCustomerName.includes(standarizedQuery);
+      });
+
+      return matchedCustomers;
     });
   });
 
