@@ -28,7 +28,7 @@
   border-color: var(--color-yale-blue);
 }
 
-/* List still needs some improvements in terms of styles */
+/* TODO: List still needs some improvements in terms of styles */
 .class-autocomplete--results-list {
   padding-left: 0;
   list-style: none;
