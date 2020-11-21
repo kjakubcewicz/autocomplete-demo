@@ -15,5 +15,17 @@
   padding-bottom: 10px;
 }
 
+.class-autocomplete--input {
+  border: 3px solid var(--color-wild-blue);
+  border-radius: 6px;
+  height: 25px;
+}
+
+.class-autocomplete--input:active,
+.class-autocomplete--input:focus {
+  outline: none;
+  border-color: var(--color-yale-blue);
+}
+
 .class-autocomplete--results-list {
 }

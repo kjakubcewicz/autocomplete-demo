@@ -45,6 +45,7 @@ export class ClassAutocomplete extends React.Component {
         </label>
         <input
           id="customer-class-autocomplete"
+          className="class-autocomplete--input"
           placeholder="Search customers"
           onChange={(event) => this.handleChange(event)}
           value={searchQuery}
