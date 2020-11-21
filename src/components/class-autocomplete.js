@@ -56,7 +56,8 @@ export class ClassAutocomplete extends React.Component {
   render() {
     const { customers, loading, searchQuery, selectedCustomer } = this.state;
 
-    // TODO: extract notification wrapper to a separate container
+    // TODO: Extract notification wrapper to a separate container. Consider extracting other elements as well, depending on the further development of the app
+    // TODO: Extract more complicated conditions to variables with meaningul name to make it easier to read the code
     // TODO: Highlighting the matched part of customer name has to implemented
 
     return (
