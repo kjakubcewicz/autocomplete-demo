@@ -5,16 +5,22 @@ const API_ENDPOINTS = {
 
 export const getCustomersByName = async (query) => {
   const users = await fetch(`${API_ENDPOINTS.USERS}`).then((response) => {
-    return response.json().then((data) => {
-      const matchedCustomers = data.filter((customer) => {
-        const standarizedCustomerName = `${customer.first_name.toLowerCase()} ${customer.last_name.toLowerCase()}`;
-        const standarizedQuery = query.trim().toLowerCase();
+    if (response.ok) {
+      return response.json().then((data) => {
+        const matchedCustomers = data.filter((customer) => {
+          const standarizedCustomerName = `${customer.first_name.toLowerCase()} ${customer.last_name.toLowerCase()}`;
+          const standarizedQuery = query.trim().toLowerCase();
 
-        return standarizedCustomerName.includes(standarizedQuery);
+          return standarizedCustomerName.includes(standarizedQuery);
+        });
+
+        return matchedCustomers;
       });
+    }
 
-      return matchedCustomers;
-    });
+    throw new Error(
+      "Connection error occurred while trying to fetch customers data"
+    );
   });
 
   return users;
