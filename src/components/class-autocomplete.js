@@ -17,7 +17,12 @@ export class ClassAutocomplete extends React.Component {
   async handleChange(event) {
     const query = event.target.value;
 
-    this.setState({ loading: true, searchQuery: query });
+    this.setState({
+      loading: true,
+      searchQuery: query,
+      selectedCustomer: null,
+      customers: [],
+    });
 
     const customers = await getCustomersByName(query);
 
