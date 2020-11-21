@@ -7,6 +7,7 @@ export class ClassAutocomplete extends React.Component {
     super();
 
     this.state = {
+      customers: [],
       searchQuery: "",
     };
   }
@@ -17,10 +18,15 @@ export class ClassAutocomplete extends React.Component {
     this.setState({ searchQuery: query });
 
     const customers = await getCustomersByName(query);
+
+    this.setState({
+      customers,
+    });
   }
 
   render() {
-    const { searchQuery } = this.state;
+    const { customers, searchQuery } = this.state;
+    console.log("customers: ", customers);
 
     return (
       <div className="class-autocomplete--wrapper">
@@ -33,6 +39,15 @@ export class ClassAutocomplete extends React.Component {
           onChange={(event) => this.handleChange(event)}
           value={searchQuery}
         />
+        {customers.length > 0 ? (
+          <ul>
+            {customers.map((customer) => (
+              <li
+                key={customer.id}
+              >{`${customer.first_name} ${customer.last_name}`}</li>
+            ))}
+          </ul>
+        ) : null}
       </div>
     );
   }
