@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.class-autocomplete--loading-indicator {
+.class-autocomplete--notification {
   font-size: 12px;
   margin-bottom: 15px;
 }

@@ -32,8 +32,13 @@ export class ClassAutocomplete extends React.Component {
     return (
       <div className="class-autocomplete--wrapper">
         {loading && searchQuery.length > 1 ? (
-          <p className="class-autocomplete--loading-indicator">
+          <p className="class-autocomplete--notification">
             Loading customers...
+          </p>
+        ) : null}
+        {!loading && !!searchQuery && customers.length === 0 ? (
+          <p className="class-autocomplete--notification">
+            No matching customers found
           </p>
         ) : null}
 
