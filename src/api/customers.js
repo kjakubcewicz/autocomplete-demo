@@ -4,6 +4,11 @@ const API_ENDPOINTS = {
 };
 
 export const getCustomersByName = async (query) => {
+  // Call API only when at least 2 characters are provided to avoid returning too many elements. With more sophisticated API, this would could be also a DB load optimization
+  if (query.length < 2) {
+    return [];
+  }
+
   const users = await fetch(`${API_ENDPOINTS.USERS}`).then((response) => {
     if (response.ok) {
       return response.json().then((data) => {
