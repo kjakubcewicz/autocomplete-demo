@@ -7,6 +7,7 @@ export class ClassAutocomplete extends React.Component {
     super();
 
     this.state = {
+      loading: false,
       customers: [],
       searchQuery: "",
     };
@@ -15,22 +16,31 @@ export class ClassAutocomplete extends React.Component {
   async handleChange(event) {
     const query = event.target.value;
 
-    this.setState({ searchQuery: query });
+    this.setState({ loading: true, searchQuery: query });
 
     const customers = await getCustomersByName(query);
 
     this.setState({
+      loading: false,
       customers,
     });
   }
 
   render() {
-    const { customers, searchQuery } = this.state;
-    console.log("customers: ", customers);
+    const { customers, loading, searchQuery } = this.state;
 
     return (
       <div className="class-autocomplete--wrapper">
-        <label htmlFor="customer-class-autocomplete">
+        {loading && searchQuery.length > 1 ? (
+          <p className="class-autocomplete--loading-indicator">
+            Loading customers...
+          </p>
+        ) : null}
+
+        <label
+          className="class-autocomplete--label"
+          htmlFor="customer-class-autocomplete"
+        >
           Search customers by name
         </label>
         <input
@@ -40,7 +50,7 @@ export class ClassAutocomplete extends React.Component {
           value={searchQuery}
         />
         {customers.length > 0 ? (
-          <ul>
+          <ul className="class-autocomplete--results-list">
             {customers.map((customer) => (
               <li
                 key={customer.id}
